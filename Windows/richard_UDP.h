@@ -65,7 +65,6 @@ int  SetupConnection(struct UDPconnection* myUDP);
 void ResetSocket(void);
 int	 SendUDPMessage(struct UDPconnection* myUDP, uint8_t* UDPMessage, int UDPMessageLen);
 void CloseUDP(void);
-int	SendUDPMessage_test(struct UDPconnection* myUDP, uint8_t* UDPMessage, int UDPMessageLen);
 
 
 

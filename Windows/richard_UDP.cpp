@@ -74,7 +74,7 @@ int SetupSocket(void)
 int SetupConnection(struct UDPconnection* myUDP)
 {
 	char debug_buffer[DEBUG_MSG_SIZE];
-
+/*
 	// Make sure the Overlapped struct is zeroed out
 	SecureZeroMemory((PVOID)&(myUDP->SendOverlapped), sizeof(WSAOVERLAPPED));
 
@@ -86,7 +86,7 @@ int SetupConnection(struct UDPconnection* myUDP)
 		WSACleanup();
 		return 1;
 	}
-
+*/
 	//Set up target address for send:
 	myUDP->TargetAddr.sin_family = AF_INET;
 	myUDP->TargetAddr.sin_port = htons(g_Port);
@@ -137,188 +137,65 @@ void CloseUDP(void)
 
 int	SendUDPMessage(struct UDPconnection* myUDP, uint8_t* UDPMessage, int UDPMessageLen)
 {
-	int rc, err;
-	char debug_buffer[DEBUG_MSG_SIZE];
-	DWORD Flags = 0;
-
-	//Wait for last message to finish:
-	if (myUDP->msg_pending)
-	{
-		rc = WSAWaitForMultipleEvents(1, &myUDP->SendOverlapped.hEvent, TRUE, INFINITE, TRUE);
-		if (rc == WSA_WAIT_FAILED)
-		{
-			sprintf_s(debug_buffer, sizeof(debug_buffer), "WSAWaitForMultipleEvents failed with error: %d\n", WSAGetLastError());
-			my_log(debug_buffer, g_log_dest);
-		}
-		myUDP->msg_pending = false;
-	}
-
-	strncpy_s((char *)myUDP->SendBuf, UDP_SEND_BUF_SIZE, (char*)UDPMessage, UDPMessageLen);
-	myUDP->SendDataBuf.len = UDPMessageLen;
-	//	myUDP->SendDataBuf.buf = SendBuf;
-
-	printf("g_UDPSocket %lld SendDataBuf.len %d Flags %d\n", g_UDPSocket, myUDP->SendDataBuf.len, Flags);
-
-//	rc = WSASendTo(g_UDPSocket, &myUDP->SendDataBuf, 1,
-//		NULL, Flags, (SOCKADDR*)&myUDP->TargetAddr,
-//		sizeof(myUDP->TargetAddr), &myUDP->SendOverlapped, NULL);
-	WSABUF SendDataBuf = myUDP->SendDataBuf;
-	WSAOVERLAPPED SendOverlapped = myUDP->SendOverlapped;
-	struct sockaddr_in TargetAddr = myUDP->TargetAddr;
-
-	printf("g_UDPSocket %lld SendDataBuf.len %d Flags %d\n", g_UDPSocket, SendDataBuf.len, Flags);
-	printf("sin_family: %d sin_port: %d sin_addr: %d size: %d\n", TargetAddr.sin_family, TargetAddr.sin_port, TargetAddr.sin_addr.S_un, sizeof(TargetAddr));
-	rc = WSASendTo(g_UDPSocket, &SendDataBuf, 1,
-		NULL, Flags, (SOCKADDR*)&TargetAddr,
-		sizeof(TargetAddr), &SendOverlapped, NULL);
-
-	if ((rc == SOCKET_ERROR) && (WSA_IO_PENDING != (err = WSAGetLastError()))) 
-	{
-		sprintf_s(debug_buffer, sizeof(debug_buffer), "WSASendTo failed with error: %d\n", err);
-		my_log(debug_buffer, g_log_dest);
-		WSACloseEvent(myUDP->SendOverlapped.hEvent);
-		WSACleanup();
-		ResetSocket();
-		return -1;
-	}
-
-	myUDP->msg_pending = true;
-	return 0;
-}
-
-int	SendUDPMessage_test(struct UDPconnection* myUDP, uint8_t* UDPMessage, int UDPMessageLen)
-{
 	WSADATA wsaData;
 	WSABUF RecvDataBuf;
-	WSABUF SendDataBuf;
-	WSAOVERLAPPED SendOverlapped;
-	WSAOVERLAPPED RecvOverlapped;
+//	WSABUF SendDataBuf;
+//	WSAOVERLAPPED SendOverlapped;
 
-	struct sockaddr_in localAddr;
-	struct sockaddr_in TargetAddr;
-	struct sockaddr_in SenderAddr;
+//	struct sockaddr_in TargetAddr;
 
-	int SenderAddrSize = sizeof(SenderAddr);
-	//    u_short Port = 3333; //was 27015;
-
-	char RecvBuf[1024];
-	int BufLen = 1024;
 	DWORD BytesRecv = 0;
 	DWORD Flags = 0;
 
 	int err = 0;
 	int rc;
 	int retval = 0;
-/*
-	//-----------------------------------------------
-	// Initialize Winsock
-	rc = WSAStartup(MAKEWORD(2, 2), &wsaData);
-	if (rc != 0) {
-		// Could not find a usable Winsock DLL
-		printf("WSAStartup failed with error: %ld\n", rc);
-		return 1;
+
+	if (myUDP->msg_pending)
+	{
+		rc = WSAWaitForMultipleEvents(1, &myUDP->SendOverlapped.hEvent, TRUE, INFINITE, TRUE);
+		if (rc == WSA_WAIT_FAILED)
+		{
+			printf("WSAWaitForMultipleEvents failed with error: %d\n", WSAGetLastError());
+		}
 	}
-*/
+
 	// Make sure the Overlapped struct is zeroed out
-	SecureZeroMemory((PVOID)&SendOverlapped, sizeof(WSAOVERLAPPED));
+	SecureZeroMemory((PVOID)&myUDP->SendOverlapped, sizeof(WSAOVERLAPPED));
 
 	// Create an event handle and setup the overlapped structure.
-	SendOverlapped.hEvent = WSACreateEvent();
-	if (SendOverlapped.hEvent == WSA_INVALID_EVENT) {
+	myUDP->SendOverlapped.hEvent = WSACreateEvent();
+	if (myUDP->SendOverlapped.hEvent == WSA_INVALID_EVENT) {
 		printf("WSACreateEvent for send failed with error: %d\n", WSAGetLastError());
 		WSACleanup();
 		return 1;
 	}
-/*
-	//-----------------------------------------------
-	// Create a socket to send/receive datagrams
-	g_UDPSocket = WSASocket(AF_INET,
-		SOCK_DGRAM,
-		IPPROTO_UDP, NULL, 0, WSA_FLAG_OVERLAPPED);
 
-	if (g_UDPSocket == INVALID_SOCKET) {
-		// Could not open a socket
-		printf("WSASocket failed with error: %ld\n", WSAGetLastError());
-		WSACloseEvent(SendOverlapped.hEvent);
-		WSACleanup();
-		return 1;
-	}
-	//-----------------------------------------------
-	// Bind the socket to any address and the specified port.
-	localAddr.sin_family = AF_INET;
-	localAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	localAddr.sin_port = htons(g_Port);
+	myUDP->SendDataBuf.len = UDPMessageLen;
+	myUDP->SendDataBuf.buf = (char *)myUDP->SendBuf;
 
-	rc = bind(g_UDPSocket, (SOCKADDR*)&localAddr, sizeof(localAddr));
-	if (rc != 0) {
-		// Bind to the socket failed
-		printf("bind failed with error: %ld\n", WSAGetLastError());
-		WSACloseEvent(SendOverlapped.hEvent);
-		closesocket(g_UDPSocket);
-		WSACleanup();
-		return 1;
-	}
-*/
-	//Set up target address:
-	TargetAddr.sin_family = AF_INET;
-	TargetAddr.sin_port = htons(g_Port);
-
-	//    TargetAddr.sin_addr.s_addr = inet_addr("192.168.138.2");
-	inet_pton(AF_INET, "192.168.138.2", &(TargetAddr.sin_addr));
-	//    InetPton(AF_INET, (PCWSTR)("192.168.138.2"), &TargetAddr.sin_addr.s_addr);
-
-	if (TargetAddr.sin_addr.s_addr == INADDR_NONE) {
-		printf("The target ip address entered must be a legal IPv4 address\n");
-		WSACloseEvent(SendOverlapped.hEvent);
-		WSACleanup();
-		return 1;
-	}
-	//    TargetAddr.sin_port = htons(3333);
-	if (TargetAddr.sin_port == 0) {
-		printf("The targetport must be a legal UDP port number\n");
-		WSACloseEvent(SendOverlapped.hEvent);
-		WSACleanup();
-		return 1;
-	}
-
-	char SendBuf[1024];
-	int SendBufLen = 0;
-
-//	strncpy_s(SendBuf, sizeof(SendBuf), (char *)UDPMessage, UDPMessageLen);
-//	sprintf_s(SendBuf, sizeof(SendBuf),
-		//                                        1         2         3         4         5         6         7         8         9         0
-//		"%d Message from Omen1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
-//		repeats);
-	SendBufLen = UDPMessageLen;
-
-	SendDataBuf.len = SendBufLen;
-	SendDataBuf.buf = SendBuf;
-
-	printf("Sending (%d) %d:", sizeof(SendBuf), SendDataBuf.len);
-	for (int ii = 0; ii < SendDataBuf.len; ii++)
+	printf("Sending %d:", myUDP->SendDataBuf.len);
+	for (int ii = 0; ii < myUDP->SendDataBuf.len; ii++)
 	{
-		SendDataBuf.buf[ii] = UDPMessage[ii];
-		printf(" %d", SendDataBuf.buf[ii]);
+		myUDP->SendDataBuf.buf[ii] = UDPMessage[ii];
+		printf(" %d", myUDP->SendDataBuf.buf[ii]);
 	}
 	printf("\n");
-	printf("g_UDPSocket %lld SendDataBuf.len %d Flags %d\n", g_UDPSocket, SendDataBuf.len, Flags);
-	printf("sin_family: %d sin_port: %d sin_addr: %d size: %d\n", TargetAddr.sin_family, TargetAddr.sin_port, TargetAddr.sin_addr.S_un, sizeof(TargetAddr));
-	rc = WSASendTo(g_UDPSocket, &SendDataBuf, 1,
-		NULL, Flags, (SOCKADDR*)&TargetAddr,
-		sizeof(TargetAddr), &SendOverlapped, NULL);
+	printf("g_UDPSocket %lld SendDataBuf.len %d Flags %d\n", g_UDPSocket, myUDP->SendDataBuf.len, Flags);
+	printf("sin_family: %d sin_port: %d sin_addr: %d\n", myUDP->TargetAddr.sin_family, myUDP->TargetAddr.sin_port, myUDP->TargetAddr.sin_addr.S_un);
+	rc = WSASendTo(g_UDPSocket, &myUDP->SendDataBuf, 1,
+		NULL, Flags, (SOCKADDR*)&myUDP->TargetAddr,
+		sizeof(struct sockaddr_in), &myUDP->SendOverlapped, NULL);
 
 	if ((rc == SOCKET_ERROR) && (WSA_IO_PENDING != (err = WSAGetLastError()))) {
 		printf("WSASendTo failed with error: %d\n", err);
-		WSACloseEvent(SendOverlapped.hEvent);
+		WSACloseEvent(myUDP->SendOverlapped.hEvent);
 		closesocket(g_UDPSocket);
 		WSACleanup();
 		return 1;
 	}
 
-	rc = WSAWaitForMultipleEvents(1, &SendOverlapped.hEvent, TRUE, INFINITE, TRUE);
-	if (rc == WSA_WAIT_FAILED)
-	{
-		printf("WSAWaitForMultipleEvents failed with error: %d\n", WSAGetLastError());
-	}
+	myUDP->msg_pending = true;
+
 	return 0;
 }

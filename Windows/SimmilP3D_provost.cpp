@@ -694,7 +694,7 @@ int send_lights(void)
             my_log(debug_buffer, g_log_dest);
         }
 
-        status = SendUDPMessage_test(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
+        status = SendUDPMessage(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
     }
     return status;
 }
@@ -771,7 +771,7 @@ int send_switches(void)
             my_log(debug_buffer, g_log_dest);
         }
 
-        status = SendUDPMessage_test(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
+        status = SendUDPMessage(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
     }
     return status;
 }
@@ -880,7 +880,7 @@ int send_A3967(void)
             my_log(debug_buffer, g_log_dest);
         }
 
-        status = SendUDPMessage_test(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
+        status = SendUDPMessage(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
     }
 
     return status;
@@ -963,7 +963,7 @@ int send_VID6606(void)
             my_log(debug_buffer, g_log_dest);
         }
 
-        status = SendUDPMessage_test(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
+        status = SendUDPMessage(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
     }
 
     return status;
@@ -986,8 +986,10 @@ int P3DFlightLoop()
         int ret = SetupSocket();
 
         //Set up UDP connections for two esp32:
-//        strcpy_s(g_UDPconnect[0].target_ip, sizeof(g_UDPconnect[0].target_ip), "192.168.138.2");
-//        SetupConnection(&g_UDPconnect[0]);
+        strcpy_s(g_UDPconnect[0].target_ip, sizeof(g_UDPconnect[0].target_ip), "192.168.138.2");
+        SetupConnection(&g_UDPconnect[0]);
+        strcpy_s(g_UDPconnect[1].target_ip, sizeof(g_UDPconnect[0].target_ip), "192.168.138.3");
+        SetupConnection(&g_UDPconnect[1]);
 
         Sleep(10);
         //    strcpy_s(g_UDPconnect[1].target_ip, sizeof(g_UDPconnect[0].target_ip), "192.168.138.3");

@@ -1,0 +1,8 @@
+dependencies:
+  idf: '>=5.3'
+description: LAN867x Ethernet PHY Driver
+targets:
+- esp32
+- esp32p4
+url: https://github.com/espressif/esp-eth-drivers/tree/master/lan867x
+version: 1.0.2

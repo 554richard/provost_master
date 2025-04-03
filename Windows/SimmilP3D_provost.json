@@ -1,0 +1,1218 @@
+{
+  "vid6606_boards": [
+    {
+      "board_id": 1,
+      "rows": [
+        {
+          "id": "1",
+          "name": "Flaps Indicator",
+          "calib": "2000",
+          "p3d_units": "Percent",
+          "p3d_simvar": "TRAILING EDGE FLAPS LEFT PERCENT",
+          "clb": [
+            {
+              "clb_in": "0.0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "26.55",
+              "clb_out": "45"
+            },
+            {
+              "clb_in": "35.4",
+              "clb_out": "90"
+            },
+            {
+              "clb_in": "44.25",
+              "clb_out": "135"
+            },
+            {
+              "clb_in": "100.0",
+              "clb_out": "200"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "BOOST",
+          "calib": "",
+          "p3d_units": "PSI",
+          "p3d_simvar": "RECIP ENG MANIFOLD PRESSURE:1",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "BOOST 2",
+          "calib": "",
+          "p3d_units": "PSI",
+          "p3d_simvar": "RECIP ENG MANIFOLD PRESSURE:2",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "name": "BOOST 3",
+          "calib": "",
+          "p3d_units": "PSI",
+          "p3d_simvar": "RECIP ENG MANIFOLD PRESSURE:2",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "6",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "7",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "8",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        }
+      ]
+    },
+    {
+      "board_id": 2,
+      "rows": [
+        {
+          "id": "1",
+          "name": "VSI",
+          "calib": "-4000",
+          "p3d_units": "",
+          "p3d_simvar": "VERTICAL SPEED",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "Sideslip",
+          "calib": "-200",
+          "p3d_units": "Position 128",
+          "p3d_simvar": "TURN COORDINATOR BALL",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Turnrate",
+          "calib": "0",
+          "p3d_units": "Degrees per second",
+          "p3d_simvar": "DELTA HEADING RATE",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "315"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "0"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "name": "Engine 1 RPM",
+          "calib": "2000",
+          "p3d_units": "Rpm",
+          "p3d_simvar": "GENERAL ENG RPM:1",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "6",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "7",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "8",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        }
+      ]
+    }
+  ],
+  "a3967_boards": [
+    {
+      "board_id": 1,
+      "rows": [
+        {
+          "id": "1",
+          "name": "Gyro Compass",
+          "type": "360",
+          "calib": "0",
+          "p3d_units": "Degrees",
+          "p3d_simvar": "PLANE HEADING DEGREES GYRO",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "360",
+              "clb_out": "360"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "Airspeed",
+          "type": "360",
+          "calib": "20",
+          "p3d_units": "mph",
+          "p3d_simvar": "AIRSPEED INDICATED",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "11"
+            },
+            {
+              "clb_in": "50",
+              "clb_out": "22"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "62"
+            },
+            {
+              "clb_in": "150",
+              "clb_out": "124"
+            },
+            {
+              "clb_in": "200",
+              "clb_out": "209"
+            },
+            {
+              "clb_in": "250",
+              "clb_out": "300"
+            },
+            {
+              "clb_in": "300",
+              "clb_out": "391"
+            },
+            {
+              "clb_in": "350",
+              "clb_out": "474"
+            },
+            {
+              "clb_in": "400",
+              "clb_out": "547"
+            },
+            {
+              "clb_in": "450",
+              "clb_out": "622"
+            },
+            {
+              "clb_in": "490",
+              "clb_out": "692"
+            },
+            {
+              "clb_in": "500",
+              "clb_out": "730"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Art Horizon Pitch",
+          "type": "normal",
+          "calib": "0",
+          "p3d_units": "Degrees",
+          "p3d_simvar": "ATTITUDE INDICATOR PITCH DEGREES",
+          "clb": [
+            {
+              "clb_in": "-30",
+              "clb_out": "465.12"
+            },
+            {
+              "clb_in": "0",
+              "clb_out": "232.56"
+            },
+            {
+              "clb_in": "30",
+              "clb_out": "0.0"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "name": "Art Horizon Roll",
+          "type": "360",
+          "calib": "0",
+          "p3d_units": "Degrees",
+          "p3d_simvar": "ATTITUDE INDICATOR BANK DEGREES",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "360",
+              "clb_out": "360"
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "name": "",
+          "type": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "6",
+          "name": "",
+          "type": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "7",
+          "name": "",
+          "type": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "8",
+          "name": "",
+          "type": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        }
+      ]
+    }
+  ],
+  "switch_boards": [
+    {
+      "board_id": 1,
+      "rows": [
+        {
+          "id": "A0",
+          "name": "Engine 1 Screw",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "AXIS_PROPELLER1_SET",
+          "p3d_simvar": "",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "100"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "0"
+            }
+          ]
+        },
+        {
+          "id": "A1",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A2",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A3",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A4",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A5",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A6",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A7",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A8",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A9",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A10",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A11",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A12",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A13",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A14",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "A15",
+          "name": "",
+          "type": "POT_AXIS",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "1",
+          "name": "Flaps posn 0%",
+          "type": "TOG_CMD",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "FLAPS_UP",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "2",
+          "name": "Flaps posn 25%",
+          "type": "TOG_CMD",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "FLAPS_1",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Flaps posn 50%",
+          "type": "TOG_CMD",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "FLAPS_2",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "4",
+          "name": "Flaps posn 75%",
+          "type": "TOG_CMD",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "FLAPS_3",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "5",
+          "name": "Flaps posn 100%",
+          "type": "TOG_CMD",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "FLAPS_DOWN",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "6",
+          "name": "Master Ignition",
+          "type": "TOG_CMD",
+          "polarity": "Reverse",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "MASTER IGNITION SWITCH",
+          "clb": [
+          ]
+        },
+        {
+          "id": "7",
+          "name": "Engine 1 Starter",
+          "type": "TOG_DREF",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "GENERAL ENG STARTER:1",
+          "clb": [
+          ]
+        },
+        {
+          "id": "8",
+          "name": "Engine 2 Starter",
+          "type": "TOG_DREF",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "GENERAL ENG STARTER:2",
+          "clb": [
+          ]
+        },
+        {
+          "id": "9",
+          "name": "Engine 3 Starter",
+          "type": "TOG_DREF",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "GENERAL ENG STARTER:3",
+          "clb": [
+          ]
+        },
+        {
+          "id": "10",
+          "name": "Engine 4 Starter",
+          "type": "TOG_DREF",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "GENERAL ENG STARTER:4",
+          "clb": [
+          ]
+        },
+        {
+          "id": "11",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "12",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "13",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "14",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "15",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "16",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "17",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "18",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "19",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "20",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "21",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "22",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "23",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "24",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "25",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "26",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "27",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "28",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "29",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "30",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "31",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "32",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "33",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "34",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "35",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "36",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "37",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "38",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "39",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "40",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "41",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "42",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "43",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "44",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "45",
+          "name": "",
+          "type": "",
+          "polarity": "",
+          "p3d_units": "",
+          "p3d_event": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        }
+      ]
+    }
+  ],
+  "light_boards": [
+    {
+      "board_id": 1,
+      "rows": [
+        {
+          "id": "1",
+          "name": "Left Gear Up",
+          "polarity": "",
+          "p3d_simvar": "SIMMIL_GEAR_LEFT_UP",
+          "clb": [
+          ]
+        },
+        {
+          "id": "2",
+          "name": "Left Gear Down",
+          "polarity": "",
+          "p3d_simvar": "SIMMIL_GEAR_LEFT_DOWN",
+          "clb": [
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Right Gear Up",
+          "polarity": "Reverse",
+          "p3d_simvar": "SIMMIL_GEAR_RIGHT_UP",
+          "clb": [
+          ]
+        },
+        {
+          "id": "4",
+          "name": "Right Gear Down",
+          "polarity": "",
+          "p3d_simvar": "SIMMIL_GEAR_RIGHT_DOWN",
+          "clb": [
+          ]
+        },
+        {
+          "id": "5",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "6",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "7",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "8",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "9",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "10",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "11",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "12",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "13",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "14",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "15",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "16",
+          "name": "",
+          "polarity": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+/.devcontainer
+/README.md
+/build
+/Windows/.vs
+/Windows/Debug
+/Windows/Output/*

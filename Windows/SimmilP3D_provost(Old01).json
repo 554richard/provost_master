@@ -5,23 +5,178 @@
       "rows": [
         {
           "id": "1",
-          "name": "VSI",
-          "calib": "-4000",
-          "p3d_units": "Feet per minute",
-          "p3d_simvar": "VERTICAL SPEED",
+          "name": "Flaps Indicator",
+          "calib": "2000",
+          "p3d_units": "Percent",
+          "p3d_simvar": "TRAILING EDGE FLAPS LEFT PERCENT",
           "clb": [
             {
-              "clb_in": " -4000",
+              "clb_in": "0.0",
               "clb_out": "0"
             },
             {
-              "clb_in": "4000",
+              "clb_in": "26.55",
+              "clb_out": "45"
+            },
+            {
+              "clb_in": "35.4",
+              "clb_out": "90"
+            },
+            {
+              "clb_in": "44.25",
+              "clb_out": "135"
+            },
+            {
+              "clb_in": "100.0",
+              "clb_out": "200"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "BOOST",
+          "calib": "",
+          "p3d_units": "PSI",
+          "p3d_simvar": "RECIP ENG MANIFOLD PRESSURE:1",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "BOOST 2",
+          "calib": "",
+          "p3d_units": "PSI",
+          "p3d_simvar": "RECIP ENG MANIFOLD PRESSURE:2",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "name": "BOOST 3",
+          "calib": "",
+          "p3d_units": "PSI",
+          "p3d_simvar": "RECIP ENG MANIFOLD PRESSURE:2",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "6",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "7",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        },
+        {
+          "id": "8",
+          "name": "",
+          "calib": "",
+          "p3d_units": "",
+          "p3d_simvar": "",
+          "clb": [
+          ]
+        }
+      ]
+    },
+    {
+      "board_id": 2,
+      "rows": [
+        {
+          "id": "1",
+          "name": "VSI",
+          "calib": "-4000",
+          "p3d_units": "",
+          "p3d_simvar": "VERTICAL SPEED",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
               "clb_out": "315"
             }
           ]
         },
         {
           "id": "2",
+          "name": "Sideslip",
+          "calib": "-200",
+          "p3d_units": "Position 128",
+          "p3d_simvar": "TURN COORDINATOR BALL",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "0"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "315"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Turnrate",
+          "calib": "0",
+          "p3d_units": "Degrees per second",
+          "p3d_simvar": "DELTA HEADING RATE",
+          "clb": [
+            {
+              "clb_in": "0",
+              "clb_out": "315"
+            },
+            {
+              "clb_in": "100",
+              "clb_out": "0"
+            }
+          ]
+        },
+        {
+          "id": "4",
           "name": "Engine 1 RPM",
           "calib": "2000",
           "p3d_units": "Rpm",
@@ -32,35 +187,9 @@
               "clb_out": "0"
             },
             {
-              "clb_in": "4000",
+              "clb_in": "100",
               "clb_out": "315"
             }
-          ]
-        },
-        {
-          "id": "3",
-          "name": "Oil Temperature",
-          "calib": "0",
-          "p3d_units": "Celcius",
-          "p3d_simvar": "GENERAL ENG OIL TEMPERATURE:1",
-          "clb": [
-            {
-              "clb_in": "0",
-              "clb_out": "0"
-            },
-            {
-              "clb_in": "120",
-              "clb_out": "100"
-            }
-          ]
-        },
-        {
-          "id": "4",
-          "name": "",
-          "calib": "",
-          "p3d_units": "",
-          "p3d_simvar": "",
-          "clb": [
           ]
         },
         {

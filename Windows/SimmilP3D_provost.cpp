@@ -220,7 +220,7 @@ static int ReadConfigFile(void)
         return -1;
     }
 
-    sprintf_s(debug_buffer, sizeof(debug_buffer), "Reading SimmilP3D.json:\n");
+    sprintf_s(debug_buffer, sizeof(debug_buffer), "Reading %s\n", ff);
     my_log(debug_buffer, g_log_dest);
 
     g_config = json::parse(fp);
@@ -771,7 +771,7 @@ int send_switches(void)
             my_log(debug_buffer, g_log_dest);
         }
 
-        status = SendUDPMessage(&g_UDPconnect[0], UDPmessage, UDPmessageLen);
+        status = SendUDPMessage(&g_UDPconnect[1], UDPmessage, UDPmessageLen);
     }
     return status;
 }
@@ -906,6 +906,10 @@ int send_VID6606(void)
 
         for (json::iterator row = (*vid6606)["rows"].begin(); row != (*vid6606)["rows"].end(); ++row)
         {
+            std::string name = (*row)["name"];
+            if (name == "")
+                continue;
+
             //Get the data:
             if (g_calibrating)
             {
@@ -932,7 +936,6 @@ int send_VID6606(void)
                 iclb_out = 0;
             }
 
-            std::string name = (*row)["name"];
             std::string row_str = (*row)["id"];
             int row_id = std::stoi(row_str);
             sprintf_s(debug_buffer, sizeof(debug_buffer), "VID6606 %d %s value: %f  sent: %f degrees\n", row_id, name.c_str(), dval, float(iclb_out) / 12.0);
@@ -988,7 +991,7 @@ int P3DFlightLoop()
         //Set up UDP connections for two esp32:
         strcpy_s(g_UDPconnect[0].target_ip, sizeof(g_UDPconnect[0].target_ip), "192.168.138.2");
         SetupConnection(&g_UDPconnect[0]);
-        strcpy_s(g_UDPconnect[1].target_ip, sizeof(g_UDPconnect[0].target_ip), "192.168.138.3");
+        strcpy_s(g_UDPconnect[1].target_ip, sizeof(g_UDPconnect[1].target_ip), "192.168.138.3");
         SetupConnection(&g_UDPconnect[1]);
 
         Sleep(10);
